@@ -43,7 +43,7 @@ With availability zones enabled, Azure Cosmos DB for NoSQL supports a *zone-redu
 ### Impact of using availability zones
 
 
-The impact of availability zones on the high availability of your Cosmos DB for NoSQL database depends on the consistency level of the account and which regions have availability zones enabled. In many cases, availability zones don’t add value or add minimal value if the account is multi-region (unless configured with strong consistency). 
+The impact of availability zones on the high availability of your Cosmos DB for NoSQL database depends on the consistency level of the account and which regions have availability zones enabled. Availability zones don’t add value if the account is multi-region write.
 
 Consult the table below to estimate the impact of using availability zones in your current account configuration:
 
@@ -228,7 +228,7 @@ Multiple-region accounts experience different behaviors depending on the followi
 
 * Subsequent reads are redirected to the recovered region without requiring any changes to your application code. During both failover and rejoining of a previously failed region, Azure Cosmos DB continues to honor read consistency guarantees.
 
-* Even in a rare and unfortunate event where an Azure write region is permanently irrecoverable, there's no data loss if your multiple-region Azure Cosmos DB account is configured with strong consistency. A multiple-region Azure Cosmos DB account has the durability characteristics specified earlier in the [Durability](#durability) section.
+* Even in a rare and unfortunate event where an Azure write region is permanently irrecoverable, there's no data loss if your multiple-region Azure Cosmos DB. A multiple-region Azure Cosmos DB account has the durability characteristics specified earlier in the [Durability](#durability) section.
 
 #### Additional information on write region outages
 
