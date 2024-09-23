@@ -104,7 +104,14 @@ Azure offers many mechanisms for keeping data private as it moves from one locat
 
 ### Data-link Layer encryption in Azure
 
-Whenever Azure Customer traffic moves between datacenters-- outside physical boundaries not controlled by Microsoft (or on behalf of Microsoft)-- a data-link layer encryption method using the [IEEE 802.1AE MAC Security Standards](https://1.ieee802.org/security/802-1ae/) (also known as MACsec) is applied from point-to-point across the underlying network hardware. The packets are encrypted  on the devices before being sent, preventing physical “man-in-the-middle” or snooping/wiretapping attacks. Because this technology is integrated on the network hardware itself, it provides line rate encryption on the network hardware with no measurable link latency increase. This MACsec encryption is on by default for all Azure traffic traveling within a region or between regions, and no action is required on customers’ part to enable. 
+Data-link layer encryption using [IEEE 802.1AE MAC Security Standards](https://1.ieee802.org/security/802-1ae/) (MACsec) is applied to Azure customer traffic both within a region and between regions. This encryption is on by default and does not require any action from customers. However, this encryption does not apply to traffic moving from Azure to third-parties.
+
+> **Note:** An Azure Region consists of clusters of one or more Availability Zones, and each Availability Zone contains clusters of one or more datacenters.
+
+So, to summarize:
+- Traffic within Azure datacenters and between Azure datacenters (within the same region or between different regions) is encrypted using the IEEE 802.1AE MAC Security Standards (MACsec).
+
+- Traffic from Azure to third-parties is not covered by this encryption. 
 
 ### TLS encryption in Azure
 
